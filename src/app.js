@@ -6,7 +6,7 @@ const {Strategy} =require('passport-local')
 const { LocalStrategy } = require('./strategies')
 const app = express()
 
-
+//
 //middlewares
 app.use(session({
     secret:'jajaja',
