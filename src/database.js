@@ -18,10 +18,10 @@ const pool = new Pool(config);
 //funcion create user
 const createuser= async (req,res) =>{
 
-    const{ nombre, username, correo, bio, direccion, birthday, clave} = req.body;
+    const{ nombre, username, correo,clave} = req.body;
     const passwordencriptado = await helpers.encryptPassword(clave)
-    const response = await pool.query('INSERT INTO usuarios (nombre, username, correo, bio, direccion, birthday, clave) VALUES($1, $2, $3, $4, $5, $6, $7)', [
-        nombre, username, correo, bio, direccion, birthday, passwordencriptado])
+    const response = await pool.query('INSERT INTO usuarios (nombre, username, correo,clave) VALUES($1, $2, $3, $4, $5, $6, $7)', [
+        nombre, username, correo,passwordencriptado])
     console.log(response);
     res.json(response.rows)
 }
@@ -29,8 +29,8 @@ const createuser= async (req,res) =>{
 //funcion modify user
 const modifyuser=async (req,res)=>{
 
-    const{ nombre, username, correo, bio, direccion, birthday, clave,id_usuario} = req.body;
-    const response = await pool.query('UPDATE usuarios SET nombre= $1 username= $2, correo=$3, bio =$4, direccion=$5, birthday=$6, clave=$7 WHERE id_usuario=$8', [nombre, username, correo, bio, direccion, birthday,clave,id_usuario])
+    const{ nombre, username, correo ,clave,id_usuario} = req.body;
+    const response = await pool.query('UPDATE usuarios SET nombre= $1 username= $2, correo=$3, clave=$4 WHERE id_usuario=$5', [nombre, username, correo,clave,id_usuario])
     console.log(response);
     res.json(response.rows)
 
@@ -82,7 +82,7 @@ const modifyroom=async(req,res)=>{
 
 //searchroom id
 const searchroom=async(req,res)=>{
-    const {id_room}=req.body
+    const id_room=req.params.id_room
     const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
     console.log(response)
     res.json(response.rows)
