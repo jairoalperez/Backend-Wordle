@@ -71,10 +71,10 @@ const readroom=async(req,res)=>{
 
 //modifyroom
 const modifyroom=async(req,res)=>{
-    const {id_room,rounds,time,author}=req.body
+    const {id_room,rounds,tiempo,author}=req.body
    
    const result= await pool.query('UPDATE room set id_room=$1, rounds=$2, tiempo=$3, author=4$',[
-       id_room,rounds,time,author
+       id_room,rounds,tiempo,author
     ])
     console.log(result)
     res.json(result.rows)
