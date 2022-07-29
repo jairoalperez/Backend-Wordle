@@ -1,12 +1,13 @@
 const express = require ('express')
+const app = express()
 const session = require ('express-session')
 const flash = require('express-flash')
 const passport = require('passport')
 const {Strategy} =require('passport-local')
 const { LocalStrategy } = require('./strategies')
-const app = express()
 
 
+//
 //middlewares
 app.use(session({
     secret:'jajaja',

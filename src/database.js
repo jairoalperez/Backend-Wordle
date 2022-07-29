@@ -52,9 +52,84 @@ const searchuserid=async(req,res)=>{
     console.log(response.rows);
     res.json(response.rows)
 }
+
+//createroom
+const createroom= async(req,res)=>{
+    const {id_room,rounds,tiempo,author}=req.body
+    const result= await pool.query('INSERT INTO room(id_room,rounds,tiempo,author) VALUES($1,$2,$3,$4)', [
+        id_room,rounds,tiempo,author ])
+     console.log(result)
+    res.json(result.rows)
+
+}
+
+//readroom
+const readroom=async(req,res)=>{
+    const result= await pool.query('SELECT*FROM room')
+    res.json(result.rows);
+}
+
+//modifyroom
+const modifyroom=async(req,res)=>{
+    const {id_room,rounds,time,author}=req.body
+   
+   const result= await pool.query('UPDATE room set id_room=$1, rounds=$2, tiempo=$3, author=4$',[
+       id_room,rounds,time,author
+    ])
+    console.log(result)
+    res.json(result.rows)
+}
+
+//searchroom id
+const searchroom=async(req,res)=>{
+    const id_room=req.body
+    const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
+    console.log(response)
+    res.json(response.rows)
+}
+
+
+
+
+//deleteroom
+const deleteroom=async(req,res)=>{
+    const id_room= req.body
+    const result=await pool.query('DELETE FROM room where id_room=$1',[
+        id_room
+    ])
+    console.log(result)
+    res.json(result.rows)
+}
+
+//createpoints
+const createpoints=async(req,res)=>{
+const {id_usuario,id_sala,puntos}=req.body
+  const result= await pool.query('INSERT INTO points (id_usuario,id_room,points) values($1,$2,$3)',[
+    id_usuario,id_sala,puntos
+  ])
+ console.log(result)
+ res.json(result.rows)
+}
+   //buscar puntos de un usuario
+   const searchpoints=async(req,res)=>{
+      const id_usuario= req.params.id_usuario
+      const result= await pool.query('SELECT * FROM point WHERE  id_usuario=$1',[id_usuario])
+      const user= result.rows[0]
+      console.log(result)
+      res.json(user.puntos)
+    }
+
 module.exports = {
     createuser,
     modifyuser,
     searchuserid,
-    searchusername
+    searchusername,
+    searchpoints,
+    createpoints,
+    deleteroom,
+    searchroom,
+    modifyroom,
+    readroom,
+    createroom
+
 }
