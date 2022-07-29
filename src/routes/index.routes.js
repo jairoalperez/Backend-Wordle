@@ -24,7 +24,7 @@ router.get('/search-username/:username',usuario.searchuser) //
 //room
 
 router.post('/create-room', room.creates)
-router.post('/search-room', room.searchidroom)
+router.get('/search-room', room.searchidroom)
 router.put('/modfy-room', room.modifyr)
 router.get('/read-rooms',room.readroom)
 router.delete('/delete-room',room.deleteroom)

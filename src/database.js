@@ -82,7 +82,7 @@ const modifyroom=async(req,res)=>{
 
 //searchroom id
 const searchroom=async(req,res)=>{
-    const id_room=req.body
+    const {id_room}=req.body
     const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
     console.log(response)
     res.json(response.rows)
@@ -93,7 +93,7 @@ const searchroom=async(req,res)=>{
 
 //deleteroom
 const deleteroom=async(req,res)=>{
-    const id_room= req.body
+    const {id_room}= req.body
     const result=await pool.query('DELETE FROM room where id_room=$1',[
         id_room
     ])
