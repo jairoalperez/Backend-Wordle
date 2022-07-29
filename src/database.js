@@ -103,9 +103,9 @@ const deleteroom=async(req,res)=>{
 
 //createpoints
 const createpoints=async(req,res)=>{
-const {id_usuario,id_sala,puntos}=req.body
+const {id_usuario,id_room,points}=req.body
   const result= await pool.query('INSERT INTO points (id_usuario,id_room,points) values($1,$2,$3)',[
-    id_usuario,id_sala,puntos
+    id_usuario,id_room,points
   ])
  console.log(result)
  res.json(result.rows)
