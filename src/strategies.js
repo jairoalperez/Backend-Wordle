@@ -1,4 +1,3 @@
-const { Result } = require('express-validator');
 const passport = require('passport');
 const { Strategy } = require('passport-local');
 const { Pool } = require('pg');
