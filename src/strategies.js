@@ -27,15 +27,12 @@ const config={
       const result= await pool.query('SELECT* FROM usuarios WHERE username=$1',[user.username])
       if(result.rows.length>0){
          const newuser =result.rows[0];
-       
-         console.log(newuser.clave);
          const validpassword= await helpers.compararclave(password,newuser.clave) 
         
          if(validpassword){
           //password===newuser.clave
           done(null,newuser,console.log('welcome'))
           user.id=newuser.id_usuario
-         
           passport.serializeUser((user,done)=>{
             done(null,user.id)
           })

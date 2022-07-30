@@ -6,6 +6,16 @@ const searchusername=require('../database')
 
 //este constante esta vacia para las instancias
 const usuario = {}
+const config={
+  
+   connectionString: process.env.DATABASE_URL,
+  max:500,
+  min:100,
+  ssl:{rejectUnauthorized:false}
+    
+  };
+
+  
 
 
 usuario.register= (req,res)=>{

@@ -1,18 +1,23 @@
 {
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "dist": "^0.1.2",
+    "ejs": "^3.1.8",
+    "emit": "^0.0.2",
     "express": "^4.18.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.3",
     "express-validator": "^6.14.2",
     "flash": "^1.1.0",
     "helpers": "^0.0.6",
+    "http": "^0.0.1-security",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pg": "^8.7.3",
     "pg-protocol": "^1.5.0",
     "router": "^1.3.7",
     "session": "^0.1.0",
+    "socket.io": "^4.5.1",
     "strategies": "^0.0.0"
   }
 }
