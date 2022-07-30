@@ -20,5 +20,17 @@
     "session": "^0.1.0",
     "socket.io": "^4.5.1",
     "strategies": "^0.0.0"
-  }
+  },
+  "name": "backend-wordle",
+  "description": "ADNAN Y JAIRO",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/app"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
