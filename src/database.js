@@ -116,6 +116,28 @@ const {id_usuario,id_room,points}=req.body
       res.json(user.puntos)
     }
 
+    const searchroomauthor=async(req,res)=>{
+        const id_room=req.params.id_room
+        const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
+        const codigo= response.rows[0]
+        res.json(codigo.author)
+    
+    }
+
+    const searchroomrounds=async(req,res)=>{
+        const id_room=req.params.id_room
+        const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
+        const codigo= response.rows[0]
+        res.json(codigo.rounds)
+    }
+
+    const searchroomtiempo=async(req,res)=>{
+        const id_room=req.params.id_room
+        const response=await pool.query('SELECT * FROM room WHERE id_room=$1',[id_room])
+        const codigo= response.rows[0]
+        res.json(codigo.tiempo)
+    }
+
 module.exports = {
     createuser,
     modifyuser,
@@ -127,6 +149,9 @@ module.exports = {
     searchroom,
     modifyroom,
     readroom,
-    createroom
+    createroom,
+    searchroomauthor,
+    searchroomrounds,
+    searchroomtiempo
 
 }

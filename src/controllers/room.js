@@ -24,6 +24,30 @@ room.searchidroom=(req,res)=>{
         console.log(e)
     }
 }
+room.searchauthor=(req,res)=>{
+    try {
+        bd.searchroomauthor(req,res)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+room.searchrounds=(req,res)=>{
+    try {
+        bd.searchroomrounds(req,res)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+room.searchtiempo=(req,res)=>{
+    try {
+        bd.searchroomtiempo(req,res)
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 
 room.readroom=(req,res)=>{
 try {

@@ -27,6 +27,12 @@ router.put('/modfy-room', room.modifyr)
 router.get('/read-rooms',room.readroom)
 router.delete('/delete-room',room.deleteroom)
 
+
+
+router.get('/search-roomauthor/:author',room.searchauthor)
+router.get('/search-roomrounds/:rounds',room.searchrounds)
+router.get('/search-roomtiempo/:tiempo',room.searchtiempo)
+
 //point
 
 router.get('/search-point/:id_usuario', points.searchp)
