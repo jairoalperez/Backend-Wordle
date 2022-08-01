@@ -29,9 +29,9 @@ router.delete('/delete-room',room.deleteroom)
 
 
 
-router.get('/search-roomauthor/:author',room.searchauthor)
-router.get('/search-roomrounds/:rounds',room.searchrounds)
-router.get('/search-roomtiempo/:tiempo',room.searchtiempo)
+router.get('/search-roomauthor/:id_room',room.searchauthor)
+router.get('/search-roomrounds/:id_room',room.searchrounds)
+router.get('/search-roomtiempo/:id_room',room.searchtiempo)
 
 //point
 
